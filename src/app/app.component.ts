@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-sea-battle';
+  title = 'Морской бой';
+
+
+  startGame(fieldSise: string, shipPosition: string) {
+    alert('fieldSise ' + fieldSise + ' shipPosition ' + shipPosition);
+  }
+}
+
+export class FieldSise {
+  size;
+
+  constructor() {
+    this.size = {
+      fieldSise: 'fieldSise'
+    };
+  }
 }
