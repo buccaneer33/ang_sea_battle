@@ -19,21 +19,29 @@
 </div>
 <div class="sizes__block">
 <h2>Размер поля: </h2>
-<form name="form" action="">
-  <label for="board_size--small"><input id="board_size--small" type="radio" [value]="small" name="fieldSise" [(ngModel)]="size.fieldSise" [checked]="size.fieldSise==small"/><span>Маленькое</span></label>
-  <label for="board_size--medium"><input id="board_size--medium" type="radio" value="medium" name="fieldSise" [(ngModel)]="size.fieldSise"  checked/><span>Среднее</span></label>
-  <label for="board_size--big"><input id="board_size--big" type="radio" value="big" name="fieldSise" [(ngModel)]="size.fieldSise" /><span>Большое</span></label>
+<form name="form1" action="">
+  <label for="{{FieldSize.name}}" *ngFor="let FieldSize of fieldList">
+      <input id="{{FieldSize.name}}" type="radio" [(ngModel)]="radioFieldSelected" name="fieldSise" 
+      value="{{FieldSize.name}}" (change)="onFieldItemChange(FieldSize)" />
+        <span>{{FieldSize.value}}</span>
+  </label>
 </form>
+<h5>{{radioFieldSelectedString}}</h5>
 </div>
 <div class="sizes__block">
     <h2>Расположение кораблей: </h2>
-    <form >
-      <label for="ship_pos-auto"><input id="ship_pos-auto" type="radio" name="shipPosition"  checked/><span>Случайно</span></label>
-      <label for="ship_pos-man"><input id="ship_pos-man" type="radio" name="shipPosition" /><span>Вручную</span></label>
+    <form name="form2" action="">
+      <label for="{{PosType.name}}" *ngFor="let PosType of posList">
+        <input id="{{PosType.name}}" type="radio" [(ngModel)]="radioPosSelected" name="posType" 
+        value="{{PosType.name}}" (change)="onPosItemChange(PosType)" />
+          <span>{{PosType.value}}</span>
+      </label> 
     </form>
+    <h5>{{radioPosSelectedString}}</h5>
     </div>
     <div class="sizes__block">
         <button class="btn btn-default" (click)="startGame(fieldSise, shipPosition)">Старт!</button>
     </div>
+  
 
 
