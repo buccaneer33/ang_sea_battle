@@ -1,0 +1,50 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Добро пожаловать в  {{ title }}!
+  </h1>
+  <div class="fields__block">
+    <div class="field__image">
+        <img width="150" alt="small field" src="../assets/img/small_field.png">
+    </div>
+    <div class="field__image">
+        <img width="200" alt="small field" src="../assets/img/medium_field.png">
+    </div>
+    <div class="field__image">
+        <img width="250" alt="small field" src="../assets/img/big_field.png">
+    </div>
+
+  </div>
+  
+</div>
+
+<div class="sizes__block">
+<h2>Размер поля: </h2>
+<form name="form1" action="">
+  <label for="{{fieldSize.name}}" *ngFor="let fieldSize of fieldList">
+      <input id="{{fieldSize.name}}" type="radio" [(ngModel)]="radioFieldSelected" name="fieldSise" 
+      value="{{fieldSize.name}}" (change)="onFieldItemChange(fieldSize)" />
+        <span>{{fieldSize.value}}</span>
+  </label>
+</form>
+<h5>{{radioFieldSelectedString}}</h5>
+</div>
+<div class="sizes__block">
+    <h2>Расположение кораблей: </h2>
+    <form name="form2" action="">
+      <label for="{{PosType.name}}" *ngFor="let PosType of posList">
+        <input id="{{PosType.name}}" type="radio" [(ngModel)]="radioPosSelected" name="posType" 
+        value="{{PosType.name}}" (change)="onPosItemChange(PosType)" />
+          <span>{{PosType.value}}</span>
+      </label> 
+    </form>
+    <h5>{{radioPosSelectedString}}</h5>
+    </div>
+    <div class="sizes__block">
+        <button  (click)="startGame()">Старт!</button>
+        
+        <a class="btn btn-default" routerLink="/game">О сайте</a>
+
+    </div>
+  
+   
