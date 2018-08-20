@@ -18,8 +18,8 @@ export class GameComponent implements OnInit {
   constructor(private configService: ConfigService) {}
 
   ngOnInit() {
-    this.fieldSize = this.configService.size;
-    this.posType = this.configService.pos;
+    this.fieldSize = this.configService.getSize();
+    this.posType = this.configService.getPos();
     console.log(' game ' +  this.fieldSize + ' ' + this.posType);
   }
 

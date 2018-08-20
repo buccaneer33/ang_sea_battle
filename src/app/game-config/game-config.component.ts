@@ -59,8 +59,8 @@ onPosItemChange(posItem) {
 this.getPosSelecteditem();
 }
   ngOnInit() {
-    this.configService.size = this.radioFieldSelectedString;
-    this.configService.pos = this.radioPosSelectedString;
+    this.configService.setSize(this.radioFieldSelectedString);
+    this.configService.setPos(this.radioPosSelectedString);
     console.log('start 1' + this.radioFieldSelectedString + ' ' + this.radioPosSelectedString);
   }
 }
