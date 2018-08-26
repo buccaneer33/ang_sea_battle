@@ -1,0 +1,28 @@
+.squadron{
+    width: 130px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: space-around;
+}
+.ship{
+    border: 3px solid #4d59a1;
+}
+.ship-4-deck{
+    width: 120px;
+    height: 30px;
+}
+.ship-3-deck{
+    width: 90px;
+    height: 30px;
+}
+.ship-2-deck{
+    width: 60px;
+    height: 30px;
+}
+.ship-1-deck{
+    width: 30px;
+    height: 30px;
+}

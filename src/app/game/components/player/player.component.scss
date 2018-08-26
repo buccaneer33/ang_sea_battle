@@ -1,0 +1,15 @@
+.player{
+    // border: 0.5px solid black;
+    width: 490px;
+
+    &__name{
+        text-align: center;
+    }
+    &__fields{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        justify-content: space-around;
+    }
+}

@@ -18,33 +18,73 @@
   
 </div>
 
-<div class="sizes__block">
-<h2>Размер поля: </h2>
-<form name="form1" action="">
-  <label for="{{fieldSize.name}}" *ngFor="let fieldSize of fieldList">
-      <input id="{{fieldSize.name}}" type="radio" [(ngModel)]="radioFieldSelected" name="fieldSise" 
-      value="{{fieldSize.name}}" (change)="onFieldItemChange(fieldSize)" />
-        <span>{{fieldSize.value}}</span>
-  </label>
-</form>
-<h5>{{radioFieldSelectedString}}</h5>
-</div>
-<div class="sizes__block">
-    <h2>Расположение кораблей: </h2>
-    <form name="form2" action="">
-      <label for="{{PosType.name}}" *ngFor="let PosType of posList">
-        <input id="{{PosType.name}}" type="radio" [(ngModel)]="radioPosSelected" name="posType" 
-        value="{{PosType.name}}" (change)="onPosItemChange(PosType)" />
-          <span>{{PosType.value}}</span>
-      </label> 
-    </form>
-    <h5>{{radioPosSelectedString}}</h5>
-    </div>
-    <div class="sizes__block">
-        <button  (click)="startGame()">Старт!</button>
-        
-        <a class="btn btn-default" routerLink="/game">О сайте</a>
+<div class="game_config__block">
+
+    <div class="game_config__inner_block">
+        <div class="sizes__block">
+            <h2>Размер поля: </h2>
+            <form name="form1" action="">
+              <label for="{{fieldSize.name}}" *ngFor="let fieldSize of fieldList">
+                  <input id="{{fieldSize.name}}" type="radio" [(ngModel)]="radioFieldSelected" name="fieldSise" 
+                  value="{{fieldSize.name}}" (change)="onFieldItemChange(fieldSize)" />
+                    <span>{{fieldSize.value}}</span>
+              </label>
+            </form>
+        </div>
+        <div class="sizes__block">
+            <h2>Расположение кораблей: </h2>
+            <form name="form2" action="">
+              <label for="{{PosType.name}}" *ngFor="let PosType of posList">
+                <input id="{{PosType.name}}" type="radio" [(ngModel)]="radioPosSelected" name="posType" 
+                value="{{PosType.name}}" (change)="onPosItemChange(PosType)" />
+                  <span>{{PosType.value}}</span>
+              </label> 
+            </form>
+        </div>
 
     </div>
+    <div class="game_config__inner_block">
+        <div class="sizes__block">
+            <h2>Сложность игры: </h2>
+            <form name="form3" action="">
+              <label for="{{GameDifficalty.name}}" *ngFor="let GameDifficalty of GameDiffList">
+                <input id="{{GameDifficalty.name}}" type="radio" [(ngModel)]="radioGameDiffSelected" name="GameDifficalty" 
+                value="{{GameDifficalty.name}}" (change)="onGameDiffItemChange(GameDifficalty)" />
+                  <span>{{GameDifficalty.value}}</span>
+              </label> 
+            </form>
+        </div>
+
+        <div class="game_config__input_block">
+            <h2>Введите имя игрока: </h2>
+            <input class="game_config__input" type="text" name="user_name"  [(ngModel)]="UserName" #user_name="ngModel"
+            required pattern="^[a-zA-Zа-яА-я0-9 _-]{3,15}$"  /> <br />
+            <div [hidden]="user_name.valid" class="game_config--alert">Некорректное имя</div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="game_config__button_block">
+        <a class="btn btn-default" routerLink="/game">Играть!</a>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
    

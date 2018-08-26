@@ -1,9 +1,58 @@
+$game_color_blue: #4d59a1;
 .fields__block{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+}
+.game_config{
+    &__block{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    &__button_block{
+        flex-basis: 50%;
+        flex-grow: 10;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    &__inner_block{
+        flex-basis: 37%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+    }
+    &__input{
+        border: 2px solid $game_color_blue;
+        color: $game_color_blue;
+        border-radius: 5px;
+        height: 25px;
+        width: 200px;
+        text-align: center;
+        font-size: 18px;
+    }
+    &__input_block{
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    &--alert{
+        color: #ff0000;
+    }
+
 }
 .sizes__block{
     display: flex;

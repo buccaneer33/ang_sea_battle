@@ -1,0 +1,58 @@
+.app-game{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+
+    &__wrapper{
+       width: 1000px; 
+    }
+    &__title{
+        text-align: center;
+    }
+    &__game-players{
+        flex-basis: 100%;
+        flex-grow: 100;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+    &__main{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__button-block{
+        padding: 30px 0;
+       // border-top:  2px solid #4d59a1;
+       // border-bottom: 2px solid #4d59a1;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+    &__game-chat{
+        border: 2px solid #4d59a1;
+        font-size: 16px;
+        color: #4d59a1;
+        padding: 10px;
+        border-radius: 15px;
+        height: 150px;
+        width: 100%;
+    }
+}
+.btn{
+    border: 2px solid #4d59a1;
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 20px;
+    color: #4d59a1;
+    padding: 10px;
+    border-radius: 5px;
+}
