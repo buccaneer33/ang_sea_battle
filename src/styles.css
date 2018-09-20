@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-image: url(assets/grid.png);
+    background-image: url(./assets/grid.png);
     font-family: 'Segoe Print', Tahoma, Geneva, Verdana, sans-serif;
     color: #4d59a1;
-    background-size: 58px 58px;
+    background-size: 57px 57px;
 }

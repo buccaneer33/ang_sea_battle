@@ -1,23 +1,33 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ConfigService } from '../../../config.service';
-// import { FieldComponent } from '../../components/field/field.component';
-// import { SquadronComponent } from '../../components/squadron/squadron.component';
-// import { ShipComponent } from '../../components/ship/ship.component';
-// import { CellComponent } from '../../components/cell/cell.component';
+// import { TransferService } from '../../../services/transfer.service';
+ import { HttpService} from '../../../services/http.service';
+
+// import { SmallField, MediumField, BigField} from '../../../config';
+import { Ship } from '../../models/ship.model';
+import Coordinates from '../../models/coordinates.model';
+import { ShipPositionService } from '../../services/ship-position/ship-position.service';
 
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
-  styleUrls: ['./player.component.scss']
+  styleUrls: ['./player.component.scss'],
+
 })
 export class PlayerComponent implements OnInit {
-   @Input () playerName: string;
-   @Input () fieldSize: string;
-   @Input () panelPos: string;
 
-  constructor() {}
+   @Input () playerName: string;
+   @Input () player: string;
+  // @Input () fieldSize: string;
+  // @Input () panelPos: string;
+   public squadron: Ship [][] = [];
+
+  constructor(
+    private _shipPositionService: ShipPositionService) {
+      console.log('playerName ' + this.playerName + ' player ' + this.player);
+    }
 
   ngOnInit() {
+    this.squadron = this._shipPositionService.getShips(this.playerName);
 
   }
 

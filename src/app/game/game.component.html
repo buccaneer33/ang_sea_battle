@@ -4,16 +4,11 @@
         <h2 class="app-game__title">Добро пожаловать в Морской Бой!</h2>
     </div>
     <div class="app-game__main">
-      <app-player [playerName]="playerName1" [fieldSize]="fieldSize" [panelPos]="leftSide"></app-player>
-      <app-player [playerName]="playerName2" [fieldSize]="fieldSize" [panelPos]="rightSide"></app-player>
-    </div>
-    <div class="app-game__button-block">
-        <button class="btn">Разместить корабли</button>
-        <button class="btn">Начать игру</button>
+      <app-player [player]="player1" [playerName]="playerName1"></app-player>
+      <app-player [player]="player2" [playerName]="playerName2"></app-player>
     </div>
     <div class="app-game__game-chat">
-
+      <app-fire-log [player1]="player1" [player2]="player2" [style.order]="playerName === 'Player' ? 0 : 1"></app-fire-log>
     </div>
-
   </div>
 </div>

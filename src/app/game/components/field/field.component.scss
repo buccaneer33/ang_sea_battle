@@ -1,0 +1,47 @@
+.field{
+  display: flex;
+  flex-direction: column;
+  max-width: 331px;
+  margin-bottom: 15px;
+  color: rgb(12, 12, 131);
+
+  &-grid{
+      display: flex;
+      flex-wrap: wrap;
+      max-width : 301px;
+      width: 300px;
+      border-top: 2px solid rgb(12, 12, 131);
+      border-left: 2px solid rgb(12, 12, 131);
+  }
+
+  &-sideCommentX{
+      display: flex;
+      margin-left: auto;
+  }
+
+  &-sideCommentY{
+      display: flex;
+      flex-direction: column;
+  }
+             
+  &-sideCommentItem{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+  }
+
+  &-mainArea{
+      display: flex;
+  }
+
+  &-randomButton{    
+      margin-left: 30px;
+  }
+
+:host{
+  margin-bottom: 10px;
+}
+
+}

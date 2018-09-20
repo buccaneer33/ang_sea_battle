@@ -34,15 +34,14 @@ $game_color_blue: #4d59a1;
     }
     &__input{
         border: 2px solid $game_color_blue;
-        color: $game_color_blue;
-        border-radius: 5px;
+        color: #000;
         height: 25px;
         width: 200px;
         text-align: center;
         font-size: 18px;
     }
     &__input_block{
-        height: 100px;
+        height: 150px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;

@@ -1,9 +1,11 @@
 .player{
-    // border: 0.5px solid black;
-    width: 490px;
+   //  border: 0.5px solid black;
+   //  padding-top: 15px;
+   //  width: 490px;
 
-    &__name{
+ /*   &__name{
         text-align: center;
+        margin: 5px 0;
     }
     &__fields{
         display: flex;
@@ -11,5 +13,8 @@
         flex-wrap: nowrap;
         align-items: stretch;
         justify-content: space-around;
+    }*/
+    &-wrapper{
+        display: flex;
     }
 }

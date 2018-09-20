@@ -1,4 +1,4 @@
-export class ConfigService {
+export class TransferService {
 
     private _size: string;
     private _pos: string;

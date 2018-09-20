@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ConfigService } from '../config.service';
-import { PlayerComponent } from './components/player/player.component';
+import { Component, OnInit } from '@angular/core';
+ import { TransferService } from '../services/transfer.service';
+ import { PlayerComponent } from './components/player/player.component';
 
 
 @Component({
@@ -12,38 +12,44 @@ import { PlayerComponent } from './components/player/player.component';
 })
 
 export class GameComponent implements OnInit {
+
   posType: string;
   gameDiff: string;
   field: any;
 
+  public player1 = 'Player';
+  public player2 = 'AI';
   public playerName1: string;
   public playerName2 = 'AI';
   public fieldSize;
   public turnToShot: boolean;
   public leftSide = 'left';
   public rightSide = 'right';
+  public turn: string;
 
 
-  constructor(private configService: ConfigService) {}
+  constructor(
+    private transferService: TransferService
+  ) {}
 
   ngOnInit() {
-    if (this.configService.getSize()) {
-      this.fieldSize = this.configService.getSize();
+    if (this.transferService.getSize()) {
+      this.fieldSize = this.transferService.getSize();
     } else { this.fieldSize = 'sizeMedium'; }
 
-    if (this.configService.getPos()) {
-      this.posType = this.configService.getPos();
+    if (this.transferService.getPos()) {
+      this.posType = this.transferService.getPos();
     } else { this.posType = 'random'; }
 
-    if (this.configService.getDiff()) {
-      this.gameDiff = this.configService.getDiff();
+    if (this.transferService.getDiff()) {
+      this.gameDiff = this.transferService.getDiff();
     } else { this.gameDiff = 'medium'; }
 
-    if (this.configService.getName()) {
-      this.playerName1 = this.configService.getName();
+    if (this.transferService.getName()) {
+      this.playerName1 = this.transferService.getName();
     } else { this.playerName1 = 'Игрок'; }
 
-    console.log(' game ' +  this.fieldSize + ' ' + this.posType + ' ' + this.gameDiff + ' ' + this.playerName1);
+    console.log(' game ' +  this.player1 + ' ' + this.player2 + ' ' + this.playerName2 + ' ' + this.playerName1);
   }
 
 

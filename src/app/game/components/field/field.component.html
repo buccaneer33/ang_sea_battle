@@ -1,1 +1,30 @@
-<div><app-medium-field></app-medium-field></div>
+<!--<div [ngSwitch]="fieldSize">
+        <ng-template ngSwitchCase='"sizeSmall"'><app-small-field></app-small-field></ng-template>
+        <ng-template ngSwitchCase='"sizeMedium"'><app-medium-field></app-medium-field></ng-template>
+        <ng-template ngSwitchCase='"sizeBig"'><app-big-field></app-big-field></ng-template>
+        <ng-template ngSwitchDefault><app-medium-field></app-medium-field></ng-template>
+    </div>-->
+    <div class="field field--medium">
+        <div class="field-sideCommentX">
+          <div class="field-sideCommentItem" *ngFor="let letter of positionY">{{letter}}</div>
+        </div>
+        <div class="field-mainArea">
+          <div class="field-sideCommentY">
+            <div class="ield-sideCommentItem" *ngFor="let digit of positionX">{{digit}}</div>
+          </div>
+          <div class="field-grid" click>
+              <ng-container *ngFor="let row of cells; let i = index">
+              <ng-container *ngFor="let cell of row; let j = index">
+                <app-cell
+                  [attr.data-positon]="positionY[j] + positionX[i]" 
+                  [position]="cell.position"
+                  [isShip]="cell.isShip"
+                  [isAroundShip]="cell.isAroundShip"
+                  [holder]="holder" 
+                  [state]="cell.state"
+                  (getFiredByPlayer)="getFired($event)">
+                </app-cell>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>

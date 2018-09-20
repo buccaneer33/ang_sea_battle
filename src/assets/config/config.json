@@ -1,0 +1,32 @@
+{ 
+    "SmallField":
+    [{
+        "size": 200,
+        "cells": 7,
+        "_5deckShips": 0,
+        "_4deckShips": 0,
+        "_3deckShips": 1,
+        "_2deckShips": 2,
+        "_1deckShips": 3 
+    }],
+    "MediumField":
+    [{
+        "size": 200,
+        "cells": 10,
+        "_5deckShips": 0,
+        "_4deckShips": 1,
+        "_3deckShips": 2,
+        "_2deckShips": 3,
+        "_1deckShips": 4 
+    }],
+    "BigField":
+    [{
+        "size": 200,
+        "cells": 13,
+        "_5deckShips": 1,
+        "_4deckShips": 2,
+        "_3deckShips": 3,
+        "_2deckShips": 4,
+        "_1deckShips": 5 
+    }]
+}

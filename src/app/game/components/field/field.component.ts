@@ -1,8 +1,15 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { ConfigService } from '../../../config.service';
-import { SmallFieldComponent } from './fields/small-field/small-field.component';
-import { MediumFieldComponent } from './fields/medium-field/medium-field.component';
-import { BigFieldComponent } from './fields/big-field/big-field.component';
+// import { TransferService } from '../../../services/transfer.service';
+// import { SmallFieldComponent } from './fields/small-field/small-field.component';
+// import { MediumFieldComponent } from './fields/medium-field/medium-field.component';
+// import { BigFieldComponent } from './fields/big-field/big-field.component';
+import { ShipPositionService } from '../../services/ship-position/ship-position.service';
+import Cell from '../../models/cell.model';
+import Coordinates from '../../models/coordinates.model';
+import { SwitchTurnService } from '../../services/switch-turn/switch-turn.service';
+import { FireLogService } from '../../services/fire-log/fire-log.service';
+import { EventEmitter } from 'protractor';
+import { ShotService } from '../../services/shot/shot.service';
 
 @Component({
   selector: 'app-field',
@@ -11,25 +18,52 @@ import { BigFieldComponent } from './fields/big-field/big-field.component';
 })
 export class FieldComponent implements OnInit {
   @Input () fieldSize: string;
-  field: any;
+  @Input () holder: string;
+  field: string;
 
-  constructor() {}
+  public options: {
+    fieldSize: {
+      'standard': 10
+    }
+  };
+
+  public positionX: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+  public positionY: string[] = ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К'];
+  public cells: Cell[][];
+
+  constructor(
+    private _shipPositionService: ShipPositionService,
+    private _switchTurnService: SwitchTurnService,
+    private _fireLogService: FireLogService,
+    private _shotService: ShotService
+  ) {}
 
   ngOnInit() {
-     console.log(' field ' + this.fieldSize);
-     this.getField(this.fieldSize);
+    this.initBoard(this.holder);
+    this.setupShipsRandomly();
+
   }
-  getField(fieldSize) {
-    switch (fieldSize) {
-      case 'sizeSmall':
-      this.field = '<app-small-field></app-small-field>';
-          break;
-      case 'sizeMedium':
-      this.field = '<app-medium-field></app-medium-field>';
-          break;
-       case 'sizeBig':
-       this.field = '<app-big-field></app-big-field>';
-          break;
+  setupShipsRandomly () {
+    this.cells = [];
+    this._shipPositionService.createCellMatrix(this.holder);
+    this._shipPositionService.setRandomShipLocal(this.holder);
+    this.initBoard(this.holder);
+
+    if (this.holder === 'Player') {
+      this._shotService.resetSubject();
     }
   }
+
+  getFired (position: Coordinates) {
+    this._fireLogService.log(this.holder, this.positionY[position.y] + '-' + this.positionX[position.x]);
+  }
+
+  initBoard (holder: string) {
+    if (holder === 'Player') {
+      this.cells = this._shipPositionService.playerField;
+    } else {
+      this.cells = this._shipPositionService.AIField;
+    }
+  }
+
 }

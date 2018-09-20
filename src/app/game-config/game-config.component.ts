@@ -9,7 +9,7 @@ import { POS_TYPES } from '../field_config/position_types';
 import { GameDifficalty } from '../field_config/game_difficalty';
 import { GAME_DIFF } from '../field_config/game_difficaltyes';
 
-import { ConfigService } from '../config.service';
+import { TransferService } from '../services/transfer.service';
 
 @Component({
   selector: 'app-game-config',
@@ -38,7 +38,7 @@ export class GameConfigComponent implements OnInit {
   UserName = 'Игрок';
 
 
-  constructor(private configService: ConfigService) {
+  constructor(private transferService: TransferService) {
     this.fieldList = FIELD_SIZES;
   // какой вариант у нас будет по умолчанию?
     this.radioFieldSelected = 'sizeMedium';
@@ -59,7 +59,7 @@ export class GameConfigComponent implements OnInit {
   getFieldSelecteditem() {
     this.radioFieldSel = FIELD_SIZES.find( fieldItem => fieldItem.name === this.radioFieldSelected);
     this.radioFieldSelectedString = JSON.stringify(this.radioFieldSel.name);
-    this.configService.setSize(this.radioFieldSelectedString);
+    this.transferService.setSize(this.radioFieldSelectedString);
 
   }
 // Radio Change Event
@@ -71,7 +71,7 @@ onFieldItemChange(fieldItem) {
 getPosSelecteditem() {
   this.radioPosSel = POS_TYPES.find( posItem => posItem.name === this.radioPosSelected);
   this.radioPosSelectedString = JSON.stringify(this.radioPosSel.name);
-  this.configService.setPos(this.radioPosSelectedString);
+  this.transferService.setPos(this.radioPosSelectedString);
 }
 // Radio Change Event
 onPosItemChange(posItem) {
@@ -81,7 +81,7 @@ this.getPosSelecteditem();
 getGameDiffSelecteditem() {
   this. radioGameDiffSel = GAME_DIFF.find( GameDiffItem => GameDiffItem.name === this.radioGameDiffSelected);
   this.radioGameDiffSelectedString = JSON.stringify(this.radioGameDiffSel.name);
-  this.configService.setDiff(this.radioGameDiffSelectedString);
+  this.transferService.setDiff(this.radioGameDiffSelectedString);
 }
 // Radio Change Event
 onGameDiffItemChange(GameDiffItem) {
@@ -93,9 +93,9 @@ this.getGameDiffSelecteditem();
     console.log('start 1' + this.radioFieldSelectedString + ' ' + this.radioPosSelectedString);
   }
   setSettingsData() {
-    this.configService.setSize(this.radioFieldSelectedString);
-    this.configService.setPos(this.radioPosSelectedString);
-    this.configService.setDiff(this.radioGameDiffSelectedString);
-    this.configService.setName(this.UserName);
+    this.transferService.setSize(this.radioFieldSelectedString);
+    this.transferService.setPos(this.radioPosSelectedString);
+    this.transferService.setDiff(this.radioGameDiffSelectedString);
+    this.transferService.setName(this.UserName);
   }
 }

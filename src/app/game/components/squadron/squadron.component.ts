@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ShotService } from '../../services/shot/shot.service';
 
 @Component({
   selector: 'app-squadron',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./squadron.component.scss']
 })
 export class SquadronComponent implements OnInit {
+  @Input() squadron;
 
-  constructor() { }
+  constructor( private _shotService: ShotService) { }
 
   ngOnInit() {
   }

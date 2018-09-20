@@ -1,6 +1,9 @@
 <div class="squadron">
-  <div class="ship ship-4-deck"></div>
-  <div class="ship ship-3-deck"></div>
-  <div class="ship ship-2-deck"></div>
-  <div class="ship ship-1-deck"></div>
+  <ng-container *ngFor="let shipClass of squadron">
+      <div class="squadron__wrapper">
+          <ng-container *ngFor="let ship of shipClass">
+              <app-ship [widthIndex]="ship.size" [health]="ship.health" [class]="ship.class"></app-ship>
+          </ng-container>
+      </div>
+  </ng-container>
 </div>

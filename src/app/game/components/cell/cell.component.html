@@ -1,3 +1,13 @@
-<p>
-  cell works!
-</p>
+<button [ngClass]="{
+  'Cell': true,
+  'Cell--playerShip': holder === 'Player' ? isShip : false, 
+  'Cell--AIShip': holder === 'Player' ? false : state === 1 ? isShip : false, 
+  'Cell--isHit' : isHit
+}" (click)="clickOnCell($event)"
+
+[disabled]="holder === 'Player'  || _switchTurnService.AITurn"
+[ngSwitch]="status">
+<span *ngSwitchCase="'dead'">X</span>
+<span class="Cell--missed" *ngSwitchCase="'miss'"></span>
+
+</button>

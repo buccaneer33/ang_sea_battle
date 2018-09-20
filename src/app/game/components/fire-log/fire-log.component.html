@@ -1,0 +1,7 @@
+<section class="FireLog">
+  <h3 class="FireLog-name">{{holder}} Данные стрельбы - </h3>
+<ul class="FireLog-field">
+  <li *ngFor="let item of logArray1; let i = index">{{i+1}}. <span>{{item}}</span></li>
+  <li *ngFor="let item of logArray2; let i = index">{{i+1}}. <span>{{item}}</span></li>
+</ul>
+</section>

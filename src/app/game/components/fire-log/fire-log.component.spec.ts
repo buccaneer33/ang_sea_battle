@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MediumFieldComponent } from './medium-field.component';
+import { FireLogComponent } from './fire-log.component';
 
-describe('MediumFieldComponent', () => {
-  let component: MediumFieldComponent;
-  let fixture: ComponentFixture<MediumFieldComponent>;
+describe('FireLogComponent', () => {
+  let component: FireLogComponent;
+  let fixture: ComponentFixture<FireLogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MediumFieldComponent ]
+      declarations: [ FireLogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MediumFieldComponent);
+    fixture = TestBed.createComponent(FireLogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
